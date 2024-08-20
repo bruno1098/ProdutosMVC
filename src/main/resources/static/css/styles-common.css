@@ -1,0 +1,22 @@
+
+:root {
+    --primary-color: #007bff;
+    --primary-color-hover: #0056b3;
+    --text-color: #fff;
+    --background-color: rgba(255, 255, 255, 0.95);
+    --input-border-color: #ccc;
+    --input-focus-border-color: #007bff;
+    --box-shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "San Francisco", "Helvetica Neue", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica", "Arial", sans-serif;
+    background-image: url('/Background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
