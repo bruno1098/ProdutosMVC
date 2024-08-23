@@ -95,3 +95,14 @@ A aplicação foi projetada para ser simples e funcional, com uma interface de u
 **ProdutosMVC** está disponível para acesso público, oferecendo uma demonstração clara e objetiva das suas funcionalidades diretamente em produção.
 
 ---
+
+## 📂 **Integrantes do Projeto**
+
+
+```plaintext
+RM98470 - Bruno Antunes
+RM98633 - Gabriel Henrique Souza
+RM99463 - Gabriel Figueiredo
+RM550231 - Pedro Ferrari
+```
+
