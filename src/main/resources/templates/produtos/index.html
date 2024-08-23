@@ -92,11 +92,13 @@
             </td>
             <td>
                 <a th:href="@{/produtos/editar/{id}(id=${produto.id})}">Editar</a>
-                <button type="button" class="delete-btn" data-id="${produto.id}">Excluir</button>
-                <form id="deleteForm-${produto.id}" th:action="@{/produtos/{id}(id=${produto.id})}" method="post" style="display: none;">
+                <form th:action="@{/produtos/{id}(id=${produto.id})}" method="post" style="display: inline;">
                     <input type="hidden" name="_method" value="delete"/>
+                    <button type="submit" class="delete-btn">Excluir</button>
                 </form>
             </td>
+
+
         </tr>
         </tbody>
     </table>
@@ -114,36 +116,38 @@
 <script>
 
     document.addEventListener('DOMContentLoaded', function () {
-        const modal = document.getElementById("deleteModal");
-        const confirmBtn = document.getElementById("confirmDelete");
-        const cancelBtn = document.getElementById("cancelDelete");
-        let formToSubmit = null;
+     const modal = document.getElementById("deleteModal");
+     const confirmBtn = document.getElementById("confirmDelete");
+     const cancelBtn = document.getElementById("cancelDelete");
+     let formToSubmit = null;
 
-        document.querySelectorAll('.delete-btn').forEach(button => {
-            button.addEventListener('click', function () {
-                const productId = this.getAttribute('data-id');
-                formToSubmit = document.getElementById(`deleteForm-${productId}`);
-                modal.style.display = "block";
-            });
-        });
+     document.querySelectorAll('.delete-btn').forEach(button => {
+         button.addEventListener('click', function (event) {
+             event.preventDefault(); // Previne o envio imediato do formulário
+             formToSubmit = this.closest('form'); // Seleciona o formulário correto
+             modal.style.display = "block"; // Abre o modal
+         });
+     });
 
-        confirmBtn.addEventListener('click', function () {
-            if (formToSubmit) {
-                formToSubmit.submit();
-            }
-            modal.style.display = "none";
-        });
+     confirmBtn.addEventListener('click', function () {
+         if (formToSubmit) {
+             formToSubmit.submit(); // Submete o formulário selecionado
+         }
+         modal.style.display = "none"; // Fecha o modal
+     });
 
-        cancelBtn.addEventListener('click', function () {
-            modal.style.display = "none";
-        });
+     cancelBtn.addEventListener('click', function () {
+         modal.style.display = "none"; // Fecha o modal
+     });
 
-        window.onclick = function (event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        };
-    });
+     window.onclick = function (event) {
+         if (event.target == modal) {
+             modal.style.display = "none"; // Fecha o modal se clicar fora
+         }
+     };
+ });
+
+
 </script>
 
 </body>

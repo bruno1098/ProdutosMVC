@@ -73,11 +73,13 @@ public class ProdutoController {
 
     @DeleteMapping("/{id}")
     public String excluirProduto(@PathVariable("id") Long id) {
+        System.out.println("Excluindo produto com ID: " + id); // Log para verificar o ID
         Produto produto = produtoRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("ID inválido: " + id));
         produtoRepository.delete(produto);
         return "redirect:/produtos";
     }
+
 
 
 
